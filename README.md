@@ -10,8 +10,8 @@ The best and innovative free report plugin!
 # Download Link
 
 * [Download from Spigot]("https://www.spigotmc.org/resources/")
-* [Download from Releases]("https://github.com/TDSTOS/TSReports/releases")
+* [Download from Releases]("https://github.com/TDSTOS/TSReports-Spigot/releases")
 
 # Support and Suggestions
 
-* [Bugs and Suggestions]("https://github.com/TDSTOS/TSReports/issues")
+* [Bugs and Suggestions]("https://github.com/TDSTOS/TSReports-Spigot/issues")
