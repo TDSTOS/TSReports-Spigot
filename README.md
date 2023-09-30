@@ -1,6 +1,6 @@
 # TSReports
 
-The best report plugin for your server!
+The best and innovative free report plugin!
 
 [![Spiget Downloads](https://img.shields.io/spiget/downloads/)]("https://www.spigotmc.org/resources/")
 
