@@ -42,6 +42,16 @@ class ReportCache(
         reports.putAll( uuidReportsMap )
     }
 
+    fun newest(
+        uuid: UUID
+    ): ReportFile
+    {
+        return reports.values.stream()
+            .filter { it.uniqueId == uuid }
+            .max( Comparator.comparingLong { it.timeOfReport } )
+            .orElse( null )
+    }
+
     fun has(
         id: Int
     ): Boolean
