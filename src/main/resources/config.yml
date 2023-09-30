@@ -1,0 +1,35 @@
+#
+#
+#
+#
+#
+#
+
+default-server-language: 'en_US'
+
+settings:
+  # If bStats is enabled the plugin will
+  # collect data and send it to bStats
+  bStats: true
+
+  # Only enable if this server is running
+  # as a subserver on BungeeCord
+  bungeeCord: false
+
+  # Only enable if this server is running
+  # via CloudNet
+  cloudNet: false
+
+  # If enabled the plugin sends debug
+  # information to the console
+  debug: false
+
+# If mysql is not enabled the plugin will
+# automatically connect to an H2 database
+mysql:
+  enabled: false
+  host: 'localhost'
+  port: 3306
+  database: 'minecraft'
+  username: 'root'
+  password: 'pass123'
