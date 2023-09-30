@@ -2,6 +2,11 @@
 
 The best and innovative free report plugin!
 
+This plugin works with the following functions/plugins:
+- BungeeCord
+- CloudNET
+- LuckPerms
+
 [![Spiget Downloads](https://img.shields.io/spiget/downloads/)](https://www.spigotmc.org/resources/)
 
 [![bStats Servers](https://img.shields.io/bstats/servers/19921?label=Bungee%20Servers)](https://bstats.org/plugin/bukkit/TSReports/19921)
