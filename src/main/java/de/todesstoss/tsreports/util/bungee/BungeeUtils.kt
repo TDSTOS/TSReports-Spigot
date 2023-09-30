@@ -37,26 +37,18 @@ class BungeeUtils : PluginMessageListener {
             `in`.readFully( msgbytes )
 
             val msgin = DataInputStream( ByteArrayInputStream( msgbytes ) )
-            val string = msgin.readUTF()
+            val uuid = UUID.fromString( msgin.readUTF().split(": ")[1] )
 
-            when(string.split(": ")[0])
-            {
-                "UPDATE" -> {
-                    val uuid = UUID.fromString( string.split(": ")[1] )
-                    plugin.reportCache.update( uuid )
-                }
+            plugin.reportCache.update( uuid )
+            val newestReport = plugin.reportCache.newest( uuid )
 
-                "REPORT" -> {
-                    val id = string.split(": ")[1].toInt()
-                    Bukkit.getOnlinePlayers().stream()
-                        .filter { PlayerUtils.hasPermission(it, listOf("tsreports.admin", "tsreports.notify")) }
-                        .forEach {
-                            MessageBuilder("report.notify")
-                                .placeholders { s -> s.replace("%id%", "$id") }
-                                .send( it.uniqueId )
-                        }
+            Bukkit.getOnlinePlayers().stream()
+                .filter { PlayerUtils.hasPermission(it, listOf("tsreports.admin", "tsreports.notify")) }
+                .forEach {
+                    MessageBuilder("report.notify")
+                        .placeholders { s -> s.replace("%id%", "${newestReport.id}") }
+                        .send( it.uniqueId )
                 }
-            }
         }
     }
 
@@ -72,26 +64,6 @@ class BungeeUtils : PluginMessageListener {
         val msgout = DataOutputStream( msgbytes )
 
         msgout.writeUTF("UPDATE: ${player.uniqueId}")
-
-        out.writeShort( msgbytes.toByteArray().size )
-        out.write( msgbytes.toByteArray() )
-
-        player.sendPluginMessage( plugin, "BungeeCord", out.toByteArray() )
-    }
-
-    fun sendNotification(
-        player: Player,
-        report: ReportFile
-    ) {
-        val out = ByteStreams.newDataOutput()
-        out.writeUTF("Forward")
-        out.writeUTF("ALL")
-        out.writeUTF("BungeeCord")
-
-        val msgbytes = ByteArrayOutputStream()
-        val msgout = DataOutputStream( msgbytes )
-
-        msgout.writeUTF("REPORT: ${report.id}")
 
         out.writeShort( msgbytes.toByteArray().size )
         out.write( msgbytes.toByteArray() )
