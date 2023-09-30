@@ -117,12 +117,8 @@ class ReportPlayerUI(
                 }
 
             if ( plugin.isBungee )
-            {
                 if (!PlayerUtils.isOnline( target.uniqueId )) plugin.bungeeCord.updateList.add( target.uniqueId )
                 else plugin.bungeeCord.sendUpdate( Bukkit.getPlayer( target.uniqueId )!! )
-
-                plugin.bungeeCord.sendNotification( viewer, report )
-            }
         }
         comp.confirmationRequired( ClickType.LEFT, ClickType.RIGHT )
         add( comp )
