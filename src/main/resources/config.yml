@@ -1,11 +1,29 @@
 #
+# |-----| |-----| |-----| |-----| |-----| |-----| |-----| |-----| |-----|
+#    |    |       |     | |       |     | |     | |     |    |    |
+#    |    |-----| |-----| |--|    |-----| |     | |-----|    |    |-----|
+#    |          | |   \   |       |       |     | |   \      |          |
+#    |    |-----| |    \  |-----| |       |-----| |    \     |    |-----|
+#                                               made by Todesstoss v1.0.0
 #
-#
-#
-#
+# https://github.com/TDSTOS/TSReports-Spigot
 #
 
+# This will be your servers default language
+# file. If a player which entered the server
+# does not have a language selected this will
+# be used.
+#
+# NOTE: Only use language files which are
+#       perfectly valid
 default-server-language: 'en_US'
+
+# This list contains UUIDs which cannot be reported.
+#
+# Please get the UUIDs from NameMC.com or any other
+# site that writes the UUIDs with commas.
+bypass-reports-uuid-list:
+  - '278885ad-4439-4870-bc36-9b9aa0e3c4d5'
 
 settings:
   # If bStats is enabled the plugin will
