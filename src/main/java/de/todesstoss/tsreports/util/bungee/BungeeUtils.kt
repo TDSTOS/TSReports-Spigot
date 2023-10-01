@@ -2,7 +2,6 @@ package de.todesstoss.tsreports.util.bungee
 
 import com.google.common.io.ByteStreams
 import de.todesstoss.tsreports.TSReports
-import de.todesstoss.tsreports.data.`object`.ReportFile
 import de.todesstoss.tsreports.util.message.MessageBuilder
 import de.todesstoss.tsreports.util.player.PlayerUtils
 import org.bukkit.Bukkit
@@ -12,7 +11,7 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.DataInputStream
 import java.io.DataOutputStream
-import java.util.UUID
+import java.util.*
 
 class BungeeUtils : PluginMessageListener {
 
