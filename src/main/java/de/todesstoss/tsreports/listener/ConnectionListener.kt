@@ -2,7 +2,6 @@ package de.todesstoss.tsreports.listener
 
 import de.todesstoss.tsreports.TSReports
 import de.todesstoss.tsreports.data.`object`.OfflinePlayer
-import de.todesstoss.tsreports.inventory.inventories.SpecificOptionsUI
 import de.todesstoss.tsreports.inventory.inventories.manage.SpecificReportUI
 import de.todesstoss.tsreports.util.message.MessageBuilder
 import de.todesstoss.tsreports.util.player.PlayerUtils
@@ -39,8 +38,10 @@ class ConnectionListener : Listener {
             plugin.sqlManager.updateAddress( player )
         }
 
-        serverWealthMessage( conn, player )
-        reportWarningMessage( conn )
+        plugin.scheduler.runTaskLaterAsynchronously(plugin, { ->
+            serverWealthMessage( conn, player )
+            reportWarningMessage( conn )
+        }, 10)
 
         if ( plugin.bungeeCord.updateList.contains( conn.uniqueId ) )
             plugin.bungeeCord.sendUpdate( conn )
@@ -50,9 +51,11 @@ class ConnectionListener : Listener {
             val report = SpecificReportUI.processedList[conn.uniqueId]
                 ?: return
 
-            MessageBuilder("report.processed")
-                .placeholders { it.replace("%name%", report.username) }
-                .send( report.operator )
+            plugin.scheduler.runTaskLaterAsynchronously(plugin, { ->
+                MessageBuilder("report.processed")
+                    .placeholders { it.replace("%name%", report.username) }
+                    .send( report.operator )
+            }, 20)
         }
     }
 
@@ -87,7 +90,7 @@ class ConnectionListener : Listener {
         }
 
         MessageBuilder("staff.join")
-            .placeholders { it.replace("%loggedIn%", loggedIn)
+            .placeholders { it.replace("%logged%", loggedIn)
                 .replace("%reports%", "$reports") }
             .send( conn.uniqueId )
     }
@@ -104,13 +107,13 @@ class ConnectionListener : Listener {
         val medium = config.getInt("warnings.medium", 25)
         val high = config.getInt("warnings.high", 60)
 
-        val message = when {
-            reports >= high -> MessageBuilder("staff.highVulnerability").get( conn.uniqueId )
-            reports >= medium -> MessageBuilder("staff.mediumVulnerability").get( conn.uniqueId )
-            else -> MessageBuilder("staff.noVulnerability").get( conn.uniqueId )
-        }
-
-        conn.spigot().sendMessage( message )
+        MessageBuilder("staff.vulnerability.message")
+            .placeholders { it.replace("%vulnerability%", when {
+                reports >= high -> MessageBuilder("staff.vulnerability.high").get( conn.uniqueId ).toLegacyText()
+                reports >= medium -> MessageBuilder("staff.vulnerability.medium").get( conn.uniqueId ).toLegacyText()
+                else -> MessageBuilder("staff.vulnerability.low").get( conn.uniqueId ).toLegacyText()
+            }) }
+            .send( conn.uniqueId )
     }
 
 }
