@@ -200,6 +200,13 @@ class SqlManager {
         core.updateAsync( query )
     }
 
+    fun clearReports()
+    {
+        plugin.debug("Clearing reports out of database.")
+        val query = "DELETE FROM tsreports_reports"
+        core.updateAsync( query )
+    }
+
     fun offlinePlayers(): Map<UUID, OfflinePlayer>
     {
         plugin.debug("Selecting all offlinePlayers from database.")
