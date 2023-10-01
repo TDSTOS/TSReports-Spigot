@@ -6,6 +6,7 @@ import de.todesstoss.tsreports.data.manager.ConfigManager
 import de.todesstoss.tsreports.data.manager.SqlManager
 import de.todesstoss.tsreports.inventory.InventoryController
 import de.todesstoss.tsreports.listener.ConnectionListener
+import de.todesstoss.tsreports.listener.ReportListener
 import de.todesstoss.tsreports.util.bstats.bStatsUtils
 import de.todesstoss.tsreports.util.bungee.BungeeUtils
 import de.todesstoss.tsreports.util.cloudnet.CNUtils
@@ -50,7 +51,8 @@ class TSReports : JavaPlugin() {
 
         registerListener(
             InventoryController(),
-            ConnectionListener()
+            ConnectionListener(),
+            ReportListener()
         )
 
         /*
