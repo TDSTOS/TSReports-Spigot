@@ -2,6 +2,8 @@ package de.todesstoss.tsreports.listener
 
 import de.todesstoss.tsreports.TSReports
 import de.todesstoss.tsreports.data.`object`.OfflinePlayer
+import de.todesstoss.tsreports.inventory.inventories.SpecificOptionsUI
+import de.todesstoss.tsreports.inventory.inventories.manage.SpecificReportUI
 import de.todesstoss.tsreports.util.message.MessageBuilder
 import de.todesstoss.tsreports.util.player.PlayerUtils
 import org.bukkit.entity.Player
@@ -42,6 +44,16 @@ class ConnectionListener : Listener {
 
         if ( plugin.bungeeCord.updateList.contains( conn.uniqueId ) )
             plugin.bungeeCord.sendUpdate( conn )
+
+        if ( SpecificReportUI.processedList.contains( conn.uniqueId ) )
+        {
+            val report = SpecificReportUI.processedList[conn.uniqueId]
+                ?: return
+
+            MessageBuilder("report.processed")
+                .placeholders { it.replace("%name%", report.username) }
+                .send( report.operator )
+        }
     }
 
     @EventHandler(
