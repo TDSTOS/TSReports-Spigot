@@ -26,7 +26,19 @@ class ManageReportsUI(
 
     private val plugin = TSReports.instance
 
-    private val reports = plugin.reportCache.reports().values.toMutableList()
+    private val reports = plugin.reportCache.reports().values.stream()
+        // sort by status: new -> in process -> processed
+        .sorted { o1, o2 ->
+            when {
+                o1.status == ReportStatus.NEW && o2.status != ReportStatus.NEW -> -1
+                o1.status != ReportStatus.NEW && o2.status == ReportStatus.NEW -> 1
+                o1.status == ReportStatus.IN_PROCESS && o2.status == ReportStatus.PROCESSED -> -1
+                o1.status == ReportStatus.PROCESSED && o2.status == ReportStatus.IN_PROCESS -> 1
+                else -> 0
+            }
+        }
+        .toList().toMutableList()
+
     private val paginator = Paginator( size - 9, reports )
 
     override val title: String
