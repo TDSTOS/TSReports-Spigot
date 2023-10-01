@@ -23,7 +23,5 @@ This plugin works with the following functions/plugins:
 
 # TODO:
 
-* Add StaffSelectUI ( if player doesn't have permission to access the AdminPanel -> directly open ManageReportsUI )
-* Add AdminPanel
 * Add LanguageSelectUI
 * Add commands (/report (open ReportPlayerUI), /reports (open StaffSelectUI), /language (open LanguageSelectUI) )
