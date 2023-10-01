@@ -36,7 +36,19 @@ enum class Messages(
     GUI_PLAYERSELECT_PLAYER_NAME("gui.playerSelect.player.name"),
     GUI_PLAYERSELECT_PLAYER_LORE("gui.playerSelect.player.lore"),
     GUI_REASONSELECT_TITLE("gui.reasonSelect.title"),
-    GUI_REASONSELECT_SIZE("gui.reasonSelect.size");
+    GUI_REASONSELECT_SIZE("gui.reasonSelect.size"),
+    GUI_STAFFSELECT_TITLE("gui.staffSelect.title"),
+    GUI_STAFFSELECT_MANAGEREPORTS_NAME("gui.staffSelect.manageReports.name"),
+    GUI_STAFFSELECT_MANAGEREPORTS_LORE("gui.staffSelect.manageReports.lore"),
+    GUI_STAFFSELECT_ADMINPANEL_NAME("gui.staffSelect.adminPanel.name"),
+    GUI_STAFFSELECT_ADMINPANEL_LORE("gui.staffSelect.adminPanel.lore"),
+    GUI_ADMINPANEL_TITLE("gui.adminPanel.title"),
+    GUI_ADMINPANEL_RELOAD_NAME("gui.adminPanel.reload.name"),
+    GUI_ADMINPANEL_RELOAD_LORE("gui.adminPanel.reload.lore"),
+    GUI_ADMINPANEL_CLEARDATABASE_NAME("gui.adminPanel.clearDatabase.name"),
+    GUI_ADMINPANEL_CLEARDATABASE_LORE("gui.adminPanel.clearDatabase.lore"),
+    GUI_ADMINPANEL_INFO_NAME("gui.adminPanel.info.name"),
+    GUI_ADMINPANEL_INFO_LORE("gui.adminPanel.info.lore");
 
     private val configManager = TSReports.instance.configManager
 

@@ -29,6 +29,9 @@ class TSReports : JavaPlugin() {
     lateinit var playerCache: PlayerCache
     lateinit var reportCache: ReportCache
 
+    // Admin
+    var lastReload = 0L
+
     // CloudNet
     lateinit var cloudNet: CNUtils
     var isCloudNet: Boolean = false
