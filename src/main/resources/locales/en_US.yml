@@ -1,0 +1,44 @@
+#
+# |-----| |-----| |-----| |-----| |-----| |-----| |-----| |-----| |-----|
+#    |    |       |     | |       |     | |     | |     |    |    |
+#    |    |-----| |-----| |--|    |-----| |     | |-----|    |    |-----|
+#    |          | |   \   |       |       |     | |   \      |          |
+#    |    |-----| |    \  |-----| |       |-----| |    \     |    |-----|
+#                                               made by Todesstoss v1.0.0
+#
+# https://github.com/TDSTOS/TSReports-Spigot
+#
+
+prefix: '&eTS&cReports &8|&r'
+noPermission: '%prefix% &cInsufficient permissions.'
+playerNotFound: '%prefix% &cThis player was not found.'
+
+report:
+  alreadyProcessed: '%prefix% &cThis report has already been processed.'
+  inProcess: '%prefix% &cThis report is already in process.'
+  isNew: '%prefix% &cThis report is new.'
+  deleted: '%prefix% &7You have &cdeleted&7 report #%id%.'
+  isClaimed: '%prefix% &cThis report is claimed.'
+  alreadyClaimed: '%prefix% &cThis report is already claimed.'
+  claimed: '%prefix% &7You have &aclaimed&7 report #%id%.'
+  statusChanged: '%prefix% &7You have changed the status of report #%id% to &a%status%&7.'
+  processed: '%prefix% &7Your report of &c%name%&7 has been &eprocessed&7.'
+  noPlayerSelected: '%prefix% &cYou have not selected a player.'
+  noReasonSelected: '%prefix% &cYou have not selected a reason.'
+
+staff:
+  serverJoin:
+    loggedIn: '&aLogged In'
+    loggedOut: '&cLogged Out'
+    join: |-
+      &f
+      &7- &6Reports Since Last Restart&8: &c%reports%
+      &f
+      &7- &6You are currently %logged%
+      &f
+
+  vulnerability:
+    message: '%prefix% &7The servers vulnerability is currently %vulnerability%&7.'
+    low: '&aLOW_VULNERABILITY &7(No Moderation Needed)'
+    medium: '&eMEDIUM_VULNERABILITY &7(Some Moderation Needed)'
+    high: '&cHIGH_VULNERABILITY &7(Immediate Moderation Needed)'
