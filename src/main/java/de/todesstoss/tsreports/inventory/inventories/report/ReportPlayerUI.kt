@@ -8,9 +8,6 @@ import de.todesstoss.tsreports.inventory.UIComponentImpl
 import de.todesstoss.tsreports.inventory.UIFrame
 import de.todesstoss.tsreports.util.inventory.Messages
 import de.todesstoss.tsreports.util.message.MessageBuilder
-import de.todesstoss.tsreports.util.player.PlayerUtils
-import de.todesstoss.tsreports.util.report.ReportUtils
-import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
