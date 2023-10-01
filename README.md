@@ -3,9 +3,9 @@
 The best and innovative free report plugin!
 
 This plugin works with the following functions/plugins:
-- BungeeCord
-- CloudNET
-- LuckPerms
+* BungeeCord
+* CloudNET
+* LuckPerms
 
 [![Spiget Downloads](https://img.shields.io/spiget/downloads/)](https://www.spigotmc.org/resources/)
 
@@ -20,3 +20,10 @@ This plugin works with the following functions/plugins:
 # Support and Suggestions
 
 * [Bugs and Suggestions](https://github.com/TDSTOS/TSReports-Spigot/issues)
+
+# TODO:
+
+* Add StaffSelectUI ( if player doesn't have permission to access the AdminPanel -> directly open ManageReportsUI )
+* Add AdminPanel
+* Add LanguageSelectUI
+* Add commands (/report (open ReportPlayerUI), /reports (open StaffSelectUI), /language (open LanguageSelectUI) )
