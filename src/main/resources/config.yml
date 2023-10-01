@@ -51,3 +51,11 @@ mysql:
   database: 'minecraft'
   username: 'root'
   password: 'pass123'
+
+# These values are used to calculate the
+# vulnerability of the server. The higher
+# the value the more vulnerable the server
+# is. Calculated by the amount of reports.
+warnings:
+  medium: 25
+  high: 60
