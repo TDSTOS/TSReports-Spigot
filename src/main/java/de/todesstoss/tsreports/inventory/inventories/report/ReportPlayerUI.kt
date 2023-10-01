@@ -100,25 +100,6 @@ class ReportPlayerUI(
             val report = ReportFile( target, viewer.uniqueId, currentReason )
 
             plugin.server.pluginManager.callEvent( ReportEvent(report, false) )
-
-            MessageBuilder("report.reported")
-                .placeholders { it.replace("%target%", target.username) }
-                .send( viewer.uniqueId )
-
-            /*
-             * Notification
-             */
-            Bukkit.getOnlinePlayers().stream()
-                .filter { PlayerUtils.hasPermission(it, listOf("tsreports.admin", "tsreports.notify")) }
-                .forEach {
-                    MessageBuilder("report.notify")
-                        .placeholders { s -> s.replace("%id%", "${report.id}") }
-                        .send( it.uniqueId )
-                }
-
-            if ( plugin.isBungee )
-                if (!PlayerUtils.isOnline( target.uniqueId )) plugin.bungeeCord.updateList.add( target.uniqueId )
-                else plugin.bungeeCord.sendUpdate( Bukkit.getPlayer( target.uniqueId )!! )
         }
         comp.confirmationRequired( ClickType.LEFT, ClickType.RIGHT )
         add( comp )
