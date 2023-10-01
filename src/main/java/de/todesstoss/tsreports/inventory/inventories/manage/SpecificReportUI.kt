@@ -15,6 +15,7 @@ import de.todesstoss.tsreports.util.report.ReportUtils
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
+import java.util.UUID
 import kotlin.streams.toList
 
 class SpecificReportUI(
@@ -143,10 +144,20 @@ class SpecificReportUI(
             MessageBuilder("report.statusChanged")
                 .placeholders { it.replace("%status%", report.status.name) }
                 .send( viewer.uniqueId )
+
+            if ( PlayerUtils.isOnline( report.operator ) )
+                MessageBuilder("report.processed")
+                    .placeholders { it.replace("%name%", report.username) }
+                    .send( report.operator )
+            else processedList[report.operator] = report
         }
         list.add( comp )
 
         return list
+    }
+
+    companion object {
+        val processedList = hashMapOf<UUID, ReportFile>()
     }
 
 }
