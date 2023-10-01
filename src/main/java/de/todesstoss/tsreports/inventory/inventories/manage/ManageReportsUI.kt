@@ -96,7 +96,7 @@ class ManageReportsUI(
             if ( report.status == ReportStatus.PROCESSED &&
                 !PlayerUtils.hasPermission(viewer, "tsreports.admin") )
             {
-                MessageBuilder("report.processed")
+                MessageBuilder("report.alreadyProcessed")
                     .send( viewer.uniqueId )
                 return@listener
             }
