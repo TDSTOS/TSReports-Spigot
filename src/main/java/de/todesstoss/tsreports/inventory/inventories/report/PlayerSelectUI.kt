@@ -20,7 +20,7 @@ class PlayerSelectUI(
 ) : UIFrame(parent, viewer) {
 
     private val players = Bukkit.getOnlinePlayers().stream()
-        .filter { !PlayerUtils.hasPermission(it, listOf("tsreports.bypass.report", "tsreports.admin")) }
+        .filter { !PlayerUtils.hasPermission(it, listOf("tsreports.bypass.report")) }
         .toList()
 
     private val paginator = Paginator( size - 9, players )

@@ -64,6 +64,37 @@ bukkit {
     version = project.version.toString()
     author = "Todesstoss"
     softDepend = listOf("LuckPerms")
+
+    permissions {
+
+        register("tsreports.admin") {
+            children = listOf(
+                "tsreports.bypass.*",
+                "tsreports.delete",
+                "tsreports.autologin",
+                "tsreports.staff",
+                "tsreports.warnings",
+                "tsreports.notify"
+            ) }
+
+        register("tsreports.bypass.*") {
+            children = listOf(
+                "tsreports.bypass.in_process",
+                "tsreports.bypass.report"
+            ) }
+
+        // Default
+        register("tsreports.delete")
+        register("tsreports.autologin")
+        register("tsreports.staff")
+        register("tsreports.warnings")
+        register("tsreports.notify")
+
+        // Bypass
+        register("tsreports.bypass.in_process")
+        register("tsreports.bypass.report")
+
+    }
 }
 
 val compileKotlin: KotlinCompile by tasks

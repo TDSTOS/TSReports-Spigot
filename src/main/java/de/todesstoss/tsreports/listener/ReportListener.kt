@@ -26,7 +26,7 @@ class ReportListener : Listener {
         val targetUuid = report.uniqueId
 
         if ( PlayerUtils.isOnline( targetUuid ) &&
-            PlayerUtils.hasPermission( targetUuid, listOf("tsreports.bypass.report", "tsreports.admin") ) )
+            PlayerUtils.hasPermission( targetUuid, listOf("tsreports.bypass.report") ) )
         {
             MessageBuilder("report.bypassed")
                 .placeholders { it.replace("%name%", report.username) }
@@ -48,7 +48,7 @@ class ReportListener : Listener {
             .send( operator )
 
         Bukkit.getOnlinePlayers().stream()
-            .filter { PlayerUtils.hasPermission(it, listOf("tsreports.admin", "tsreports.notify")) }
+            .filter { PlayerUtils.hasPermission(it, listOf("tsreports.notify")) }
             .forEach {
                 MessageBuilder("report.notify")
                     .placeholders { s -> s.replace("%id%", "${report.id}") }

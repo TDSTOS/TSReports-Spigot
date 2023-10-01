@@ -43,7 +43,7 @@ class BungeeUtils : PluginMessageListener {
             val newestReport = plugin.reportCache.newest( uuid )
 
             Bukkit.getOnlinePlayers().stream()
-                .filter { PlayerUtils.hasPermission(it, listOf("tsreports.admin", "tsreports.notify")) }
+                .filter { PlayerUtils.hasPermission(it, listOf("tsreports.notify")) }
                 .forEach {
                     MessageBuilder("report.notify")
                         .placeholders { s -> s.replace("%id%", "${newestReport.id}") }

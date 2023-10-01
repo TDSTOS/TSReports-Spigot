@@ -102,7 +102,7 @@ class ManageReportsUI(
             }
 
             if ( report.status == ReportStatus.IN_PROCESS && report.processing != viewer.uniqueId &&
-                !PlayerUtils.hasPermission(viewer, listOf("tsreports.bypass.in_process", "tsreports.admin") )
+                !PlayerUtils.hasPermission(viewer, listOf("tsreports.bypass.in_process") )
             ) {
                 MessageBuilder("report.inProcess")
                     .send(viewer.uniqueId)

@@ -80,7 +80,7 @@ class ConnectionListener : Listener {
         player: OfflinePlayer
     ) {
         // (only with permission: tsreports.staff)
-        if ( !PlayerUtils.hasPermission(conn, listOf("tsreports.staff", "tsreports.admin")) ) return
+        if ( !PlayerUtils.hasPermission(conn, listOf("tsreports.staff")) ) return
 
         val reports = plugin.reportCache.size()
 
@@ -99,7 +99,7 @@ class ConnectionListener : Listener {
         conn: Player
     ) {
         // (only with permission: tsreports.warnings)
-        if ( !PlayerUtils.hasPermission(conn, listOf("tsreports.warnings", "tsreports.admin")) ) return
+        if ( !PlayerUtils.hasPermission(conn, listOf("tsreports.warnings")) ) return
 
         val config = plugin.config
         val reports = plugin.reportCache.size()
