@@ -42,3 +42,244 @@ staff:
     low: '&aLOW_VULNERABILITY &7(No Moderation Needed)'
     medium: '&eMEDIUM_VULNERABILITY &7(Some Moderation Needed)'
     high: '&cHIGH_VULNERABILITY &7(Immediate Moderation Needed)'
+
+gui:
+  barrier:
+    name: '&7//'
+
+  backButton:
+    name: '&cBack'
+
+  previous:
+    name: '&e← Previous'
+
+  next:
+    name: '&eNext →'
+
+  confirmation:
+    confirm:
+      name: '&aConfirm'
+
+    return:
+      name: '&cReturn'
+
+  manageReports:
+    title: '&cManage Reports'
+
+    report:
+      name: '&eReport #%id%'
+      lore:
+        - '&f '
+        - '&ePlayer:'
+        - '&7  - &eName: %username%'
+        - '&7  - &eUUID: %uuid%'
+        - '&f '
+        - '&eOperator: %operator%'
+        - '&f '
+        - '&eReason: %reason%'
+        - '&eServer: %server%'
+        - '&eStatus: %status%'
+        - '&f '
+        - '&eProcessing: %processing%'
+        - '&f '
+        - '&7Left Click to inspect report.'
+        - '&cRight Click to delete report.'
+
+  specificReport:
+    title: '&cReport #%id%'
+
+    info:
+      name: '&eInformation'
+      lore:
+        - '&f '
+        - '&ePlayer:'
+        - '&7  - &eName: %username%'
+        - '&7  - &eUUID: %uuid%'
+        - '&f '
+        - '&eOperator: %operator%'
+        - '&f '
+        - '&eReason: %reason%'
+        - '&eServer: %server%'
+        - '&eStatus: %status%'
+        - '&f '
+        - '&eProcessing: %processing%'
+
+    changeStatus:
+      name: '&eChange Status'
+      lore:
+        - '&f '
+        - '&7Click to change the status'
+        - '&7of this report.'
+
+      inProcess:
+        name: '&eIn Process'
+        lore:
+          - '&f '
+          - '&7Click to change the status'
+          - '&7to ''inProcess''.'
+
+      processed:
+        name: '&8Processed'
+        lore:
+          - '&f '
+          - '&7Click to change the status'
+          - '&7to ''Processed''.'
+
+    claim:
+      name: '&eClaim'
+      lore:
+        - '&f '
+        - '&7Click to claim this report.'
+
+  reportPlayer:
+    title: '&cPlayer Report'
+
+    player:
+      name: '&ePlayer: %name%'
+      lore:
+        - '&f '
+        - '&7Click to select another player.'
+
+    reason:
+      name: '&cReason: %reason%'
+      lore:
+        - '&f '
+        - '&7Click to select another reason.'
+
+    confirm:
+      name: '&aConfirm report'
+      lore:
+        - '&f '
+        - '&7Click to confirm your report.'
+
+  playerSelect:
+    title: '&7Select a player'
+
+    player:
+      name: '&e%name%'
+      lore:
+        - '&f '
+        - '&7Click to select this player.'
+
+  reasonSelect:
+    title: '&7Select a reason'
+    # Please note that the border in this inventory is activated by default.
+    size: 54 # 6 rows 9 slots = 6 * 9 = 54
+
+    # These slots look the best with the default inventory:
+    # 20 - 24
+    # 29 - 33
+
+    reasons:
+      # In order to get the correct material name, please use
+      # this site: https://www.digminecraft.com/lists/item_id_list_pc_1_8.php
+      #
+      # If you want to have the texture of the standard Steve Skin, use this string as 'texture':
+      # ewogICJ0aW1lc3RhbXAiIDogMTY2MTY3OTM3OTkwMCwKICAicHJvZmlsZUlkIiA6ICI4NjY3YmE3MWI4NWE0MDA0YWY1NDQ1N2E5NzM0ZWVkNyIsCiAgInByb2ZpbGVOYW1lIiA6ICJTdGV2ZSIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82MGE1YmQwMTZiM2M5YTFiOTI3MmU0OTI5ZTMwODI3YTY3YmU0ZWJiMjE5MDE3YWRiYmM0YTRkMjJlYmQ1YjEiCiAgICB9LAogICAgIkNBUEUiIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzk1M2NhYzhiNzc5ZmU0MTM4M2U2NzVlZTJiODYwNzFhNzE2NThmMjE4MGY1NmZiY2U4YWEzMTVlYTcwZTJlZDYiCiAgICB9CiAgfQp9
+
+      0:
+        name: '&cHacking'
+        material: 'IRON_SWORD'
+        slot: 20
+        reason: 'Hacking'
+        lore:
+          - ''
+
+      1:
+        name: '&cFlying'
+        material: 'FEATHER'
+        slot: 21
+        reason: 'Flying'
+        lore:
+          - ''
+
+      2:
+        name: '&cX-Ray'
+        material: 'DIAMOND_ORE'
+        slot: 22
+        reason: 'XRay'
+        lore:
+          - ''
+
+      3:
+        name: '&cGriefing'
+        material: 'TNT'
+        slot: 23
+        reason: 'Griefing'
+        lore:
+          - ''
+
+      4:
+        name: '&cName'
+        material: 'NAME_TAG'
+        slot: 24
+        reason: 'Name'
+        lore:
+          - ''
+
+      5:
+        name: '&cSkin'
+        material: 'PLAYER_HEAD'
+        slot: 29
+        reason: 'Skin'
+        texture: 'ewogICJ0aW1lc3RhbXAiIDogMTY2MTY3OTM3OTkwMCwKICAicHJvZmlsZUlkIiA6ICI4NjY3YmE3MWI4NWE0MDA0YWY1NDQ1N2E5NzM0ZWVkNyIsCiAgInByb2ZpbGVOYW1lIiA6ICJTdGV2ZSIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82MGE1YmQwMTZiM2M5YTFiOTI3MmU0OTI5ZTMwODI3YTY3YmU0ZWJiMjE5MDE3YWRiYmM0YTRkMjJlYmQ1YjEiCiAgICB9LAogICAgIkNBUEUiIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzk1M2NhYzhiNzc5ZmU0MTM4M2U2NzVlZTJiODYwNzFhNzE2NThmMjE4MGY1NmZiY2U4YWEzMTVlYTcwZTJlZDYiCiAgICB9CiAgfQp9'
+        lore:
+          - ''
+
+      6:
+        name: '&cChat'
+        material: 'WRITABLE_BOOK'
+        slot: 30
+        reason: 'Chat'
+        lore:
+          - ''
+
+      7:
+        name: '&cOther'
+        material: 'PAPER'
+        slot: 31
+        reason: 'Other'
+        lore:
+          - ''
+
+  staffSelect:
+    title: '&7Management Hub'
+
+    manageReports:
+      name: '&cManage Reports'
+      lore:
+        - '&f '
+        - '&7Click to manage reports of'
+        - '&7this server.'
+
+    adminPanel:
+      name: '&cAdmin Panel'
+      lore:
+        - '&f '
+        - '&7Click to open the Admin Panel.'
+
+  adminPanel:
+    title: '&cAdmin Panel'
+
+    reload:
+      name: '&cReload Plugin'
+      lore:
+        - '&f '
+        - '&7Click to reload the plugin.'
+
+    clearDatabase:
+      name: '&cClear Database'
+      lore:
+        - '&f '
+        - '&7Click to clear all reports from'
+        - '&7the database.'
+
+    info:
+      name: '&eInformation'
+      lore:
+        - '&f '
+        - '&eLast Reload: %lastReload%'
+        - '&f '
+        - '&eReports: %reports%'
+        - '&f '
+        - '&eStaff Online: %staffOnline%'
