@@ -16,8 +16,7 @@ class ReasonSelectUI(
     private val target: UUID?
 ) : UIFrame(parent, viewer) {
 
-    private val reasons = ReportUtils.reasons()
-
+    private val reasons = ReportUtils.reasons( viewer.uniqueId )
     private val paginator = Paginator( size - 9, reasons.size )
 
     override val title: String
