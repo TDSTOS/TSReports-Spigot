@@ -68,7 +68,7 @@ class AdminPanel(
         val lastReload = (System.currentTimeMillis() - plugin.lastReload).convert()
         val reports = plugin.reportCache.reports().size
         val staffOnline = Bukkit.getOnlinePlayers().stream()
-            .filter { PlayerUtils.hasPermission(it, "tsreports.staff") && it.uniqueId != viewer.uniqueId }
+            .filter { PlayerUtils.hasPermission(it, "tsreports.staff") }
             .count()
 
         val lore = Messages.GUI_ADMINPANEL_INFO_LORE.getList( viewer.uniqueId )
