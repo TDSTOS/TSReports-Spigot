@@ -43,10 +43,12 @@ class ReportPlayerUI(
         val name = if ( target == null ) "§cN/A" else
             plugin.playerCache.get( target!! )!!.username
 
+        val lore = Messages.GUI_REPORTPLAYER_PLAYER_LORE.getList( viewer.uniqueId )
         val comp = UIComponentImpl.Builder(Material.PLAYER_HEAD)
             .name(Messages.GUI_REPORTPLAYER_PLAYER_NAME.getString( viewer.uniqueId )
                 .replace("%name%", name))
             .skull( if ( target != null ) name else "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDgyYjc4ZGE2ZWU3MTNkNWFjZmU1ZmNiMDc1NGVlNTY5MDA4MzFhNTA5ODMxMzA2NDEwOGRlNmU3ZTQwNjgzOSJ9fX0=" )
+            .lore( lore )
             .slot( 20 )
             .build()
         comp.listener(ClickType.LEFT, ClickType.RIGHT) {
@@ -73,9 +75,11 @@ class ReportPlayerUI(
 
     private fun addSend()
     {
+        val lore = Messages.GUI_REPORTPLAYER_CONFIRM_LORE.getList( viewer.uniqueId )
         val comp = UIComponentImpl.Builder(Material.PLAYER_HEAD)
             .name(Messages.GUI_REPORTPLAYER_CONFIRM_NAME.getString( viewer.uniqueId ))
             .skull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTMwZjQ1MzdkMjE0ZDM4NjY2ZTYzMDRlOWM4NTFjZDZmN2U0MWEwZWI3YzI1MDQ5YzlkMjJjOGM1ZjY1NDVkZiJ9fX0=")
+            .lore( lore )
             .slot( 24 )
             .build()
         comp.listener(ClickType.LEFT, ClickType.RIGHT) {
