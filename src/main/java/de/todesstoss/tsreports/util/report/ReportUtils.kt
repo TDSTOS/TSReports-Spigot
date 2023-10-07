@@ -6,28 +6,30 @@ import de.todesstoss.tsreports.data.`object`.ReportStatus
 import de.todesstoss.tsreports.inventory.UIComponent
 import de.todesstoss.tsreports.inventory.UIComponentImpl
 import org.bukkit.Material
-import org.bukkit.entity.Player
+import java.util.*
 
 object ReportUtils {
 
     private val plugin = TSReports.instance
 
-    fun reasons(): Map<String, UIComponent>
+    fun reasons(
+        uuid: UUID
+    ): Map<String, UIComponent>
     {
-        val config = plugin.config
+        val configManager = plugin.configManager
         val components = hashMapOf<String, UIComponent>()
 
         for ( i in 0..35 )
         {
-            val path = "gui.reportPlayer.reasons.$i"
-            if ( !config.contains(path) ) continue
+            val path = "gui.reasonSelect.reasons.$i"
+            if ( !configManager.contains(path, uuid) ) continue
 
-            val name = config.getString("$path.name")!!
-            val type = Material.valueOf( config.getString("$path.material")!!.uppercase() )
-            val lore = config.getStringList("$path.lore")
-            val slot = config.getInt("$path.slot")
-            val reason = config.getString("$path.reason")!!
-            val texture = if ( type == Material.PLAYER_HEAD ) config.getString("$path.texture")!! else ""
+            val name = configManager.getMessage("$path.name", uuid)
+            val type = Material.valueOf( configManager.getMessage("$path.material", uuid).uppercase() )
+            val slot = configManager.getInteger("$path.slot", uuid)
+            val reason = configManager.getMessage("$path.reason", uuid)
+            val texture = if ( type == Material.PLAYER_HEAD ) configManager.getMessage("$path.texture", uuid) else ""
+            val lore = configManager.getStringList("$path.lore", uuid)
 
             components[reason] = UIComponentImpl.Builder(type)
                 .skull( texture )
@@ -65,15 +67,22 @@ object ReportUtils {
         report: ReportFile
     ): String
     {
+        val operator = if ( !plugin.playerCache.has( report.operator ) ) report.operator.toString()
+            else plugin.playerCache.get( report.operator )!!.username
+
+        val processing = if ( report.processing == null ) "N/A"
+            else if ( !plugin.playerCache.has( report.processing!! ) ) report.processing.toString()
+            else plugin.playerCache.get( report.processing!! )!!.username
+
         return string.replace("%id%", "${report.id}")
             .replace("%username%", report.username)
             .replace("%uuid%", report.uniqueId.toString())
             .replace("%address%", report.address)
             .replace("%reason%", report.reason)
-            .replace("%operator%", report.operator.toString())
+            .replace("%operator%", operator)
             .replace("%server%", report.server)
             .replace("%status%", report.status.name)
-            .replace("%processing%", report.processing.toString())
+            .replace("%processing%", processing)
     }
 
 }
