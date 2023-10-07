@@ -36,6 +36,32 @@ class ConfigManager(
         defaultLocale = Utils.stringToLocale( config.getString("default-server-language")!! )
     }
 
+    fun contains(
+        path: String
+    ): Boolean
+    {
+        var bool = false
+
+        if ( locales.containsKey(defaultLocale) )
+            bool = locales[defaultLocale]?.contains(path) == true
+
+        return bool
+    }
+
+    fun contains(
+        path: String,
+        uuid: UUID?
+    ): Boolean
+    {
+        val locale = PlayerLocale(uuid).locale()
+        var bool = false
+
+        if ( locales.containsKey(locale) )
+            bool = locales[locale]?.contains(path) == true
+
+        return bool
+    }
+
     fun getInteger(
         path: String
     ): Int
