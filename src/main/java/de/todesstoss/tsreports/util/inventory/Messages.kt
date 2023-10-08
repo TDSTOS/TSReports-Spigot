@@ -50,7 +50,8 @@ enum class Messages(
     GUI_ADMINPANEL_CLEARDATABASE_NAME("gui.adminPanel.clearDatabase.name"),
     GUI_ADMINPANEL_CLEARDATABASE_LORE("gui.adminPanel.clearDatabase.lore"),
     GUI_ADMINPANEL_INFO_NAME("gui.adminPanel.info.name"),
-    GUI_ADMINPANEL_INFO_LORE("gui.adminPanel.info.lore");
+    GUI_ADMINPANEL_INFO_LORE("gui.adminPanel.info.lore"),
+    GUI_LANGUAGESELECTOR_TITLE("gui.languageSelector.title");
 
     private val configManager = TSReports.instance.configManager
 

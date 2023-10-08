@@ -13,6 +13,8 @@ prefix: '&eTS&cReports &8|&r'
 noPermission: '%prefix% &cInsufficient permissions.'
 playerNotFound: '%prefix% &cThis player was not found.'
 
+languageSelected: '%prefix% &7You have selected &e%language%&7 as your new language.'
+
 report:
   alreadyProcessed: '%prefix% &cThis report has already been processed.'
   inProcess: '%prefix% &cThis report is already in process.'
@@ -283,3 +285,6 @@ gui:
         - '&eReports: %reports%'
         - '&f '
         - '&eStaff Online: %staffOnline%'
+
+  languageSelector:
+    title: '&7Select a language'
