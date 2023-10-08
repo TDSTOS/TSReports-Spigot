@@ -61,4 +61,11 @@ class PlayerCache(
         return players.remove( uuid )
     }
 
+    fun replace(
+        uuid: UUID,
+        offlinePlayer: OfflinePlayer
+    ) {
+        players.replace( uuid, offlinePlayer )
+    }
+
 }
