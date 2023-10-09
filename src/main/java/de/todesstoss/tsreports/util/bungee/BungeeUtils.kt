@@ -16,7 +16,9 @@ import java.util.*
 class BungeeUtils : PluginMessageListener {
 
     private val plugin = TSReports.instance
+
     val updateList = arrayListOf<UUID>()
+    val playerList = arrayListOf<String>()
 
     override fun onPluginMessageReceived(
         channel: String,
@@ -49,6 +51,13 @@ class BungeeUtils : PluginMessageListener {
                         .send( it.uniqueId )
                 }
         }
+        else if ( subchannel == "PlayerList" )
+        {
+            val server = `in`.readUTF() // The name of the server you got the player list of, as given in args.
+            val playerList = `in`.readUTF().split(", ")
+
+            this.playerList.addAll( playerList )
+        }
     }
 
     fun sendUpdate(
@@ -68,6 +77,21 @@ class BungeeUtils : PluginMessageListener {
         out.write( msgbytes.toByteArray() )
 
         player.sendPluginMessage( plugin, "BungeeCord", out.toByteArray() )
+    }
+
+    fun playerList(
+        player: Player
+    ): List<String>
+    {
+        val out = ByteStreams.newDataOutput()
+        out.writeUTF("PlayerList")
+        out.writeUTF("ALL")
+        player.sendPluginMessage( plugin, "BungeeCord", out.toByteArray() )
+
+        if ( playerList.isEmpty() )
+            return playerList( player )
+
+        return playerList
     }
 
 }
