@@ -47,7 +47,8 @@ class SqlManager {
                             " username VARCHAR(16)," +
                             " address VARCHAR(35)," +
                             " language VARCHAR(10)," +
-                            " loggedIn VARCHAR(1)" +
+                            " loggedIn VARCHAR(1)," +
+                            " isAdmin VARCHAR(1)" +
                             if ( provider() == "MySQL" ) ", PRIMARY KEY (uuid))"
                             else ")"
 
@@ -224,8 +225,9 @@ class SqlManager {
                     val address = result.getString("address")
                     val language = Utils.stringToLocale( result.getString("language") )
                     val loggedIn = result.getBoolean("loggedIn")
+                    val isAdmin = result.getBoolean("isAdmin")
 
-                    offlinePlayers[uuid] = OfflinePlayer(uuid, username, address, language, loggedIn)
+                    offlinePlayers[uuid] = OfflinePlayer(uuid, username, address, language, loggedIn, isAdmin)
                 }
 
             }
@@ -240,20 +242,21 @@ class SqlManager {
     fun addOfflinePlayer(
         offlinePlayer: OfflinePlayer
     ) {
-        plugin.debug("Adding offlinePlayer to database.")
+        plugin.debug("Adding offlinePlayer (${offlinePlayer.uniqueId}) to database.")
         val query = "INSERT INTO tsreports_players VALUES (" +
                 "'${offlinePlayer.uniqueId}'," +
                 "'${offlinePlayer.username}'," +
                 "'${offlinePlayer.address}'," +
                 "'${offlinePlayer.language}'," +
-                "'${offlinePlayer.loggedIn.number()}')"
+                "'${offlinePlayer.loggedIn.number()}'," +
+                "'${offlinePlayer.isAdmin.number()}')"
         core.updateAsync( query )
     }
 
     fun removeOfflinePlayer(
         uuid: UUID
     ) {
-        plugin.debug("Removing offlinePlayer from database.")
+        plugin.debug("Removing offlinePlayer ($uuid) from database.")
         val query = "DELETE FROM tsreports_players WHERE uuid='$uuid'"
         core.updateAsync( query )
     }
@@ -261,7 +264,7 @@ class SqlManager {
     fun updateName(
         offlinePlayer: OfflinePlayer
     ) {
-        plugin.debug("Updating name in database.")
+        plugin.debug("Updating name for ${offlinePlayer.uniqueId}.")
         val query = "UPDATE tsreports_players SET username='${offlinePlayer.username}' WHERE uuid='${offlinePlayer.uniqueId}'"
         core.updateAsync( query )
     }
@@ -269,7 +272,7 @@ class SqlManager {
     fun updateAddress(
         offlinePlayer: OfflinePlayer
     ) {
-        plugin.debug("Updating address in database.")
+        plugin.debug("Updating address for ${offlinePlayer.uniqueId}.")
         val query = "UPDATE tsreports_players SET address='${offlinePlayer.address} WHERE uuid='${offlinePlayer.uniqueId}''"
         core.updateAsync( query )
     }
@@ -277,7 +280,7 @@ class SqlManager {
     fun updateLanguage(
         offlinePlayer: OfflinePlayer
     ) {
-        plugin.debug("Updating language in database.")
+        plugin.debug("Updating language for ${offlinePlayer.uniqueId}.")
         val query = "UPDATE tsreports_players SET language='${offlinePlayer.language}' WHERE uuid='${offlinePlayer.uniqueId}'"
         core.updateAsync( query )
     }
@@ -285,8 +288,16 @@ class SqlManager {
     fun updateLoggedIn(
         offlinePlayer: OfflinePlayer
     ) {
-        plugin.debug("Updating loggedIn in database.")
+        plugin.debug("Updating loggedIn for ${offlinePlayer.uniqueId}.")
         val query = "UPDATE tsreports_players SET loggedIn='${offlinePlayer.loggedIn.number()}' WHERE uuid='${offlinePlayer.uniqueId}'"
+        core.updateAsync( query )
+    }
+
+    fun updateIsAdmin(
+        offlinePlayer: OfflinePlayer
+    ) {
+        plugin.debug("Updating isAdmin for ${offlinePlayer.uniqueId}.")
+        val query = "UPDATE tsreports_players SET isAdmin='${offlinePlayer.isAdmin.number()}' WHERE uuid='${offlinePlayer.uniqueId}'"
         core.updateAsync( query )
     }
 

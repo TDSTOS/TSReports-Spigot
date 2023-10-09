@@ -9,7 +9,8 @@ data class OfflinePlayer(
     var username: String,
     var address: String,
     var language: Locale,
-    var loggedIn: Boolean = false
+    var loggedIn: Boolean = false,
+    var isAdmin: Boolean = false
 ) {
 
     constructor(
