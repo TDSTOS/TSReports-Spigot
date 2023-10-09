@@ -1,6 +1,7 @@
 package de.todesstoss.tsreports.util.player
 
 import de.todesstoss.tsreports.TSReports
+import de.todesstoss.tsreports.data.`object`.OfflinePlayer
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.util.UUID
@@ -81,4 +82,9 @@ object PlayerUtils {
         return bool
     }
 
+}
+
+fun Player.asOfflinePlayer(): OfflinePlayer
+{
+    return TSReports.instance.playerCache.get( this.uniqueId )!!
 }
