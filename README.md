@@ -20,8 +20,3 @@ This plugin works with the following functions/plugins:
 # Support and Suggestions
 
 * [Bugs and Suggestions](https://github.com/TDSTOS/TSReports-Spigot/issues)
-
-# TODO:
-
-* Add LanguageSelectUI
-* Add commands (/report (open ReportPlayerUI), /reports (open StaffSelectUI), /language (open LanguageSelectUI) )
