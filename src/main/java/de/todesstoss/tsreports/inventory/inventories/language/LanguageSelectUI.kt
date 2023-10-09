@@ -13,7 +13,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.inventory.ClickType
 import kotlin.streams.toList
 
-class LanguageSelectorUI(
+class LanguageSelectUI(
     override val parent: UIFrame?,
     override val viewer: Player
 ) : UIFrame(parent, viewer) {
@@ -59,7 +59,7 @@ class LanguageSelectorUI(
                 plugin.sqlManager.updateLanguage( offlinePlayer )
                 plugin.playerCache.replace( viewer.uniqueId, offlinePlayer )
 
-                MessageBuilder("languageSelected")
+                MessageBuilder("commands.language.selected")
                     .placeholders { it.replace("%language%", newLocale.getDisplayLanguage( newLocale )) }
                     .send( viewer.uniqueId )
                 updateFrame()
