@@ -10,170 +10,175 @@
 #
 
 prefix: '&eTS&cReports &8|&r'
-noPermission: '%prefix% &cInsufficient permissions.'
-playerNotFound: '%prefix% &cThis player was not found.'
-onlyPlayer: '%prefix% &cOnly players can use this command.'
+noPermission: '%prefix% &cUnzureichende Berechtigungen.'
+playerNotFound: '%prefix% &cDieser Spieler wurde nicht gefunden.'
+onlyPlayer: '%prefix% &cNur Spieler können diesen Befehl ausführen.'
 
 commands:
   language:
     usage: |-
-      &cUsage&8: /&clanguage &8[&clang-code&8]
+      &cBenutzung&8: /&clanguage &8[&clang-code&8]
       &f
       &cLang-Codes&8:
       &7  - &cen_US
       &7  - &cde_DE
-    selected: '%prefix% &7You have selected &e%language%&7 as your new language.'
+    selected: '%prefix% &7Du hast &e%language&7 als deine Sprache ausgewählt.'
 
 report:
-  alreadyProcessed: '%prefix% &cThis report has already been processed.'
-  inProcess: '%prefix% &cThis report is already in process.'
-  isNew: '%prefix% &cThis report is new.'
-  deleted: '%prefix% &7You have &cdeleted&7 report #%id%.'
-  isClaimed: '%prefix% &cThis report is claimed.'
-  alreadyClaimed: '%prefix% &cYou have already claimed this report.'
-  claimed: '%prefix% &7You have &aclaimed&7 report #%id%.'
-  statusChanged: '%prefix% &7You have changed the status of report #%id% to &a%status%&7.'
-  processed: '%prefix% &7Your report of &c%name%&7 has been &eprocessed&7.'
-  noPlayerSelected: '%prefix% &cYou have not selected a player.'
-  noReasonSelected: '%prefix% &cYou have not selected a reason.'
+  alreadyProcessed: '%prefix% &cDiese Meldung wurde bereits bearbeitet.'
+  inProcess: '%prefix% &cDiese Meldung wird bereits bearbeitet.'
+  isNew: '%prefix% &cDiese Meldung ist neu.'
+  deleted: '%prefix% &7Du hast die Meldung #%id% &cgelöscht&7.'
+  isClaimed: '%prefix% &cDiese Meldung wurde bereits beansprucht.'
+  alreadyClaimed: '%prefix% &cDu hast diese Meldung bereits beansprucht.'
+  claimed: '%prefix% &7Du hast die Meldung #%id% &abeansprucht&7.'
+  statusChanged: '%prefix% &7Du hast den Status der Meldung #%id% zu &a%status%&7 geändert.'
+  processed: '%prefix% &7Deine Meldung gegen &c%name%&7 wurde &ebearbeitet&7.'
+  noPlayerSelected: '%prefix% &cDu hast keinen Spieler ausgewählt.'
+  noReasonSelected: '%prefix% &cDu hast keinen Grund ausgewählt.'
 
 staff:
   serverJoin:
-    loggedIn: '&aLogged In'
-    loggedOut: '&cLogged Out'
+    loggedIn: '&aAngemeldet'
+    loggedOut: '&cAbgemeldet'
     join: |-
       &f
-      &7- &6Reports Since Last Restart&8: &c%reports%
+      &7- &6Meldungen seit letztem Neustart&8: &c%reports%
       &f
-      &7- &6You are currently %logged%
+      &7- &6Du biste gerade %logged%
       &f
 
   vulnerability:
-    message: '%prefix% &7The servers vulnerability is currently %vulnerability%&7.'
-    low: '&aLOW_VULNERABILITY &7(No Moderation Needed)'
-    medium: '&eMEDIUM_VULNERABILITY &7(Some Moderation Needed)'
-    high: '&cHIGH_VULNERABILITY &7(Immediate Moderation Needed)'
+    message: '%prefix% &7Die Schwachstelle des Servers ist derzeit %vulnerability%&7.'
+    low: '&aLOW_VULNERABILITY &7(Keine Moderation erforderlich)'
+    medium: '&eMEDIUM_VULNERABILITY &7(Wenig Moderation erforderlich)'
+    high: '&cHIGH_VULNERABILITY &7(Sofortige Moderation erforderlich)'
 
 gui:
   barrier:
     name: '&7//'
 
   backButton:
-    name: '&cBack'
+    name: '&cZurück'
 
   previous:
-    name: '&e← Previous'
+    name: '&e← Vorherige Seite'
 
   next:
-    name: '&eNext →'
+    name: '&eNächste Seite →'
 
   confirmation:
     confirm:
-      name: '&aConfirm'
+      name: '&aBestätigen'
 
     return:
-      name: '&cReturn'
+      name: '&cZurück'
 
   manageReports:
-    title: '&cManage Reports'
+    title: '&cMeldungen Verwaltung'
 
     report:
-      name: '&eReport #%id%'
+      name: '&eMeldung #%id%'
       lore:
         - '&f '
-        - '&ePlayer:'
+        - '&eSpieler:'
         - '&7  - &eName: %username%'
         - '&7  - &eUUID: %uuid%'
         - '&f '
         - '&eOperator: %operator%'
         - '&f '
-        - '&eReason: %reason%'
+        - '&eGrund: %reason%'
         - '&eServer: %server%'
         - '&eStatus: %status%'
         - '&f '
-        - '&eProcessing: %processing%'
+        - '&eBearbeitung durch: %processing%'
         - '&f '
-        - '&7Left Click to inspect report.'
-        - '&cRight Click to delete report.'
+        - '&7Linksklick um die Meldung zu prüfen.'
+        - '&cRechtsklick um die Meldung zu löschen.'
 
   specificReport:
-    title: '&cReport #%id%'
+    title: '&cMeldung #%id%'
 
     info:
       name: '&eInformation'
       lore:
         - '&f '
-        - '&ePlayer:'
+        - '&eSpieler:'
         - '&7  - &eName: %username%'
         - '&7  - &eUUID: %uuid%'
         - '&f '
         - '&eOperator: %operator%'
         - '&f '
-        - '&eReason: %reason%'
+        - '&eGrund: %reason%'
         - '&eServer: %server%'
         - '&eStatus: %status%'
         - '&f '
-        - '&eProcessing: %processing%'
+        - '&eBearbeitung durch: %processing%'
 
     changeStatus:
-      name: '&eChange Status'
+      name: '&eStatus ändern'
       lore:
         - '&f '
-        - '&7Click to change the status'
-        - '&7of this report.'
+        - '&7Klicke um den Status dieser'
+        - '&7Meldung zu ändern.'
 
       inProcess:
-        name: '&eIn Process'
+        name: '&eIn Bearbeitung'
         lore:
           - '&f '
-          - '&7Click to change the status'
-          - '&7to ''inProcess''.'
+          - '&7Klicken Sie, um den Status in'
+          - '&7''inProcess'' zu ändern'
 
       processed:
-        name: '&8Processed'
+        name: '&8Bearbeitet'
         lore:
           - '&f '
-          - '&7Click to change the status'
-          - '&7to ''Processed''.'
+          - '&7Klicken Sie, um den Status in'
+          - '&7''Processed'' zu ändern'
 
     claim:
-      name: '&eClaim'
+      name: '&eBeanspruchen'
       lore:
         - '&f '
-        - '&7Click to claim this report.'
+        - '&7Klicken Sie, um die Meldung'
+        - '&7zu beanspruchen.'
 
   reportPlayer:
-    title: '&cPlayer Report'
+    title: '&cSpieler melden'
 
     player:
-      name: '&ePlayer: %name%'
+      name: '&eSpieler: %name%'
       lore:
         - '&f '
-        - '&7Click to select another player.'
+        - '&7Klicke um einen anderen Spieler'
+        - '&7auszuwählen.'
 
     reason:
-      name: '&cReason: %reason%'
+      name: '&cGrund: %reason%'
       lore:
         - '&f '
-        - '&7Click to select another reason.'
+        - '&7Klicke um einen anderen Grund'
+        - '&7auszuwählen.'
 
     confirm:
-      name: '&aConfirm report'
+      name: '&aMeldung bestätigen'
       lore:
         - '&f '
-        - '&7Click to confirm your report.'
+        - '&7Klicke um die Meldung zu'
+        - '&7bestätigen.'
 
   playerSelect:
-    title: '&7Select a player'
+    title: '&7Spieler auswählen'
 
     player:
       name: '&e%name%'
       lore:
         - '&f '
-        - '&7Click to select this player.'
+        - '&7Klicke um diesen Spieler'
+        - '&7auszuwählen.'
 
   reasonSelect:
-    title: '&7Select a reason'
+    title: '&7Grund auswählen'
     # Please note that the border in this inventory is activated by default.
     size: 54 # 6 rows 9 slots = 6 * 9 = 54
 
@@ -257,43 +262,43 @@ gui:
     title: '&7Management Hub'
 
     manageReports:
-      name: '&cManage Reports'
+      name: '&cMeldungen Bearbeitung'
       lore:
         - '&f '
-        - '&7Click to manage reports of'
-        - '&7this server.'
+        - '&7Klicke um die Meldungen dieses'
+        - '&7Servers zu bearbeiten.'
 
     adminPanel:
       name: '&cAdmin Panel'
       lore:
         - '&f '
-        - '&7Click to open the Admin Panel.'
+        - '&7Klicke um das Admin Panel zu öffnen.'
 
   adminPanel:
     title: '&cAdmin Panel'
 
     reload:
-      name: '&cReload Plugin'
+      name: '&cPlugin neuladen'
       lore:
         - '&f '
-        - '&7Click to reload the plugin.'
+        - '&7Klicke um das Plugin neuzuladen.'
 
     clearDatabase:
-      name: '&cClear Database'
+      name: '&cDatenbank löschen'
       lore:
         - '&f '
-        - '&7Click to clear all reports from'
-        - '&7the database.'
+        - '&7Klicke um alle Meldungen aus der'
+        - '&7Datenbank zu löschen.'
 
     info:
       name: '&eInformation'
       lore:
         - '&f '
-        - '&eLast Reload: %lastReload%'
+        - '&eLetzte Neuladung: %lastReload%'
         - '&f '
-        - '&eReports: %reports%'
+        - '&eMeldungen: %reports%'
         - '&f '
         - '&eStaff Online: %staffOnline%'
 
   languageSelector:
-    title: '&7Select a language'
+    title: '&7Sprache auswählen'
