@@ -1,5 +1,8 @@
 package de.todesstoss.tsreports
 
+import de.todesstoss.tsreports.command.AdminCommand
+import de.todesstoss.tsreports.command.LanguageCommand
+import de.todesstoss.tsreports.command.ReportCommand
 import de.todesstoss.tsreports.data.cache.PlayerCache
 import de.todesstoss.tsreports.data.cache.ReportCache
 import de.todesstoss.tsreports.data.manager.ConfigManager
@@ -12,6 +15,8 @@ import de.todesstoss.tsreports.util.bungee.BungeeUtils
 import de.todesstoss.tsreports.util.cloudnet.CNUtils
 import net.luckperms.api.LuckPerms
 import org.bukkit.Bukkit
+import org.bukkit.command.CommandExecutor
+import org.bukkit.command.TabCompleter
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
@@ -57,6 +62,10 @@ class TSReports : JavaPlugin() {
             ConnectionListener(),
             ReportListener()
         )
+
+        registerCommand( "reports", AdminCommand() )
+        registerCommand( "language", LanguageCommand() )
+        registerCommand( "report", ReportCommand() )
 
         /*
          * bStats Initialization
@@ -128,6 +137,17 @@ class TSReports : JavaPlugin() {
     ) {
         debug("Registering listener: ${listener.javaClass.simpleName}")
         listener.forEach { server.pluginManager.registerEvents( it, this ) }
+    }
+
+    private fun <T> registerCommand(
+        name: String,
+        command: T
+    ) where T : CommandExecutor, T : TabCompleter
+    {
+        val pluginCommand = getCommand(name)
+            ?: return
+        pluginCommand.setExecutor( command )
+        pluginCommand.tabCompleter = command
     }
 
     fun stream(
