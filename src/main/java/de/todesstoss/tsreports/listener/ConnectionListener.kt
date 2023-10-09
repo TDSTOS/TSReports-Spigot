@@ -38,6 +38,8 @@ class ConnectionListener : Listener {
             plugin.sqlManager.updateAddress( player )
         }
 
+        updateAdminStatus( player )
+
         plugin.scheduler.runTaskLaterAsynchronously(plugin, { ->
             serverWealthMessage( conn, player )
             reportWarningMessage( conn )
@@ -73,6 +75,13 @@ class ConnectionListener : Listener {
             player.loggedIn = false
             plugin.sqlManager.updateLoggedIn( player )
         }
+    }
+
+    private fun updateAdminStatus(
+        player: OfflinePlayer
+    ) {
+        player.isAdmin = PlayerUtils.hasPermission( player.uniqueId, "tsreports.admin" )
+        plugin.sqlManager.updateIsAdmin( player )
     }
 
     private fun serverWealthMessage(
