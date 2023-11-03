@@ -7,10 +7,16 @@ This plugin works with the following functions/plugins:
 * CloudNET
 * LuckPerms
 
-[![Spiget Downloads](https://img.shields.io/spiget/downloads/)](https://www.spigotmc.org/resources/)
-
 [![bStats Servers](https://img.shields.io/bstats/servers/19921?label=Bungee%20Servers)](https://bstats.org/plugin/bukkit/TSReports/19921)
 [![bStats Players](https://img.shields.io/bstats/players/19921?label=Bungee%20Players)](https://bstats.org/plugin/bukkit/TSReports/19921)
+
+# Commands
+
+[] = optional
+
+* /report [player]
+* /reports
+* /language [language]
 
 # Download Link
 
@@ -20,3 +26,4 @@ This plugin works with the following functions/plugins:
 # Support and Suggestions
 
 * [Bugs and Suggestions](https://github.com/TDSTOS/TSReports-Spigot/issues)
+
